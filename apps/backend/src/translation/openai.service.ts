@@ -10,11 +10,17 @@ export class OpenAIService {
 
   constructor(private configService: ConfigService) {
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
+    const nodeEnv = this.configService.get<string>('NODE_ENV');
+    
     if (!apiKey) {
       this.logger.warn('OPENAI_API_KEY not configured');
+      if (nodeEnv === 'production') {
+        throw new Error('OPENAI_API_KEY is required in production environment');
+      }
     }
+    
     this.openai = new OpenAI({
-      apiKey: apiKey || 'dummy-key',
+      apiKey: apiKey || 'dummy-key-for-development',
     });
   }
 

@@ -60,10 +60,7 @@ export class TranslationService {
   async postprocess(dto: PostprocessDto): Promise<{ success: boolean; message: string }> {
     this.logger.log(`Postprocessing with feedback: ${dto.feedback}`);
     
-    this.feedbackLog.push({
-      ...dto,
-      feedback: dto.feedback,
-    });
+    this.feedbackLog.push(dto);
 
     let message = 'Feedback recorded successfully';
     if (dto.feedback === 'like') {

@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsIn } from 'class-validator';
 
 export class TranslateDto {
   @IsString()
@@ -18,5 +18,7 @@ export class PostprocessDto {
   imageUrl: string;
 
   @IsString()
+  @IsOptional()
+  @IsIn(['like', 'dislike', 'report'])
   feedback?: 'like' | 'dislike' | 'report';
 }
