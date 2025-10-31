@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { OpenAIService } from './openai.service';
 import { TranslateDto, GenerateImageDto, PostprocessDto } from './dto/translation.dto';
 
-interface TranslationResult {
+export interface TranslationResult {
   originalText: string;
   gloss: string;
   imageUrl: string;
