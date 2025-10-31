@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手語圖片生成器 - Sign Language Image Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤟 手語圖片生成器</h1>
+            <p class="subtitle">輸入文字，生成手語圖片</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="textInput">輸入文字：</label>
+                <textarea 
+                    id="textInput" 
+                    placeholder="請輸入想要轉換成手語的文字..." 
+                    rows="4"
+                ></textarea>
+                <button id="generateBtn" onclick="generateSignLanguage()">
+                    生成手語圖片
+                </button>
+            </div>
+
+            <div class="output-section">
+                <h2>生成的手語圖片：</h2>
+                <div id="signLanguageOutput" class="sign-output">
+                    <p class="placeholder">在上方輸入文字後點擊按鈕生成手語圖片</p>
+                </div>
+                <button id="downloadBtn" onclick="downloadImage()" style="display: none;">
+                    下載圖片
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 手語圖片生成器 - 讓溝通更無障礙</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
