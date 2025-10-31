@@ -1,0 +1,21 @@
+# Render deployment configuration
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: sign-lang-ai-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install --workspace=apps/backend && npm run build --workspace=apps/backend
+    startCommand: npm run start:prod --workspace=apps/backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.vercel.app
