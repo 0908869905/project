@@ -1,0 +1,16 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: [
+      'oaidalleapiprodscus.blob.core.windows.net',
+      'dalleprodsec.blob.core.windows.net',
+      // Add more OpenAI domains as needed
+    ],
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
+  },
+}
+
+module.exports = nextConfig
